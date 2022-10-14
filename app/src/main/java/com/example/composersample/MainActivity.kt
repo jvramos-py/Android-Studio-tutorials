@@ -27,7 +27,7 @@ import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
 import androidx.compose.material.*
 import androidx.compose.ui.graphics.Color
-import com.example.composersample.ui.theme.Grey
+import com.example.composersample.ui.theme.*
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,12 +42,15 @@ class MainActivity : ComponentActivity() {
 
 data class Message(val author: String, val body: String)
 
+var isExpanded by remember {
+    mutableStateOf(false)
+}
+
+val test: Int = if (isExpanded) Int.MAX_VALUE else 1
+
 @Composable
 fun MessageCard(msg: Message) {
-    var isExpanded by remember {
-        mutableStateOf(false)
-    }
-    val test: Int = if (isExpanded) Int.MAX_VALUE else 1
+
 
     //surfaceColor will be updated gradually from one color to other
     val surfaceColor by animateColorAsState(
