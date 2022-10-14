@@ -50,8 +50,6 @@ val test: Int = if (isExpanded) Int.MAX_VALUE else 1
 
 @Composable
 fun MessageCard(msg: Message) {
-
-
     //surfaceColor will be updated gradually from one color to other
     val surfaceColor by animateColorAsState(
         if (isExpanded) {
@@ -114,12 +112,6 @@ fun Conversation(messages: List<Message>) {
     }
 }
 
-@Preview(name = "Light Mode")
-@Preview(
-    uiMode = Configuration.UI_MODE_NIGHT_YES,
-    showBackground = true,
-    name = "Dark Mode"
-)
 @Composable 
 fun PreviewConversation() {
     ComposerSampleTheme {
