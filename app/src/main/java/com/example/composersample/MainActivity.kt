@@ -42,6 +42,7 @@ class MainActivity : ComponentActivity() {
 
 data class Message(val author: String, val body: String)
 
+//We keep track if the message is expanded or not in this variable
 var isExpanded by remember {
     mutableStateOf(false)
 }
@@ -72,7 +73,6 @@ fun MessageCard(msg: Message) {
 
        //add a horizontal space between the image and the column
        Spacer(modifier = Modifier.width(8.dp))
-       //We keep track if the message is expanded or not in this variable
        //We toggle the isExpanded variable when we click on this Column
        Column (modifier = Modifier.clickable { isExpanded = !isExpanded }){
            Text(
@@ -112,6 +112,7 @@ fun Conversation(messages: List<Message>) {
     }
 }
 
+@Preview
 @Composable 
 fun PreviewConversation() {
     ComposerSampleTheme {
